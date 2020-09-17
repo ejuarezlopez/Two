@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lab 2</title>
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin=""/>
+
+        <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+
+    </head>
+    <style>
+    body{color:navyblue;}
+    </style>
+    <body>
+
+
+        <h2>Guatemala Volcanos</h2>
+        <div id="map" style="height: 700px"></div>
+
+        <script type="text/javascript">
+
+          var map = L.map('map', {
+              center: [15.0, -91.0],
+              zoom: 4
+          });
+
+          L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                       attribution: '@ <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                       maxZoom: 8,
+                       minZoom: 8
+                    }).addTo(map);
+
+
+                    var volcanIcon = L.icon({
+            iconUrl: 'volcano.png', // url that links to the icon image file
+            iconSize:     [38, 38], // size of the icon image in pixels
+            iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+            popupAnchor:  [0, -10]// point from which the popup should open, relative to the iconAnchor
+          });
+
+                    var mountainIcon = L.icon({
+            iconUrl: 'mountain.png',
+            iconSize:     [38, 38], // size of the icon image in pixels
+            iconAnchor:   [19, 19], // the top left corner of the icon will be aligned so that this point is at the marker's geographical location
+            popupAnchor:  [0, -10]
+
+        });
+
+
+            var marker1 = L.marker([15.13250, -92.10861], {icon: mountainIcon}).addTo(map);
+            var marker2 = L.marker([14.7560, -91.5520], {icon: volcanIcon}).addTo(map);
+            var marker3 = L.marker([14.4161, -90.6392], {icon: volcanIcon}).addTo(map);
+            var marker4 = L.marker([14.47, -90.88], {icon: volcanIcon}).addTo(map);
+
+            var pic1 = '<img src="https://i.imgur.com/sYKWR6S.jpg?1 alt="Tacana" width="250">';
+            var pic2 = '<img src="https://i.imgur.com/BHFSppT.jpg" alt="Santa Maria" width="250">';
+            var pic3 = '<img src ="https://i.imgur.com/i3m89Ww.jpg"alt="Pacaya" width="250">';
+            var pic4 = '<img src ="https://i.imgur.com/QfStawK.jpg"alt="Fuego" width="250">';
+
+  marker1.bindPopup('<p style="color:navyblue; font-weight:bold"> TACANA Volcano <br> Elevation: 13,320 ft <br> Inactive </p>' + pic1);
+  marker2.bindPopup('<p style="color:navyblue; font-weight:bold"> SANTA MARIA Volcano <br> Elevation: 12,375 ft <br> Active </p>' + pic2);
+  marker3.bindPopup('<p style="color:navyblue; font-weight:bold"> PACAYA Volcano <br> Elevation: 8,373 ft <br> Active </p>' + pic3);
+  marker4.bindPopup('<p style="color:navyblue; font-weight:bold"> FUEGO Volcano <br> Elevation: 12,346 ft <br> Active </p>' + pic4);
+
+
+        </script>
+   </body>
+</html>
